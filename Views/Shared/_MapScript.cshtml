@@ -1,0 +1,34 @@
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_xWvmsNQNlWzJUVJUowJPxTob81GbPa0&libraries=places&callback=initialize"></script>
+
+
+<script>
+
+  var geocoder;
+  var map;
+  function initialize() {
+    geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(41.025658,28.974155);
+    var mapOptions = {
+      zoom: 9,
+      center: latlng
+    }
+    map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  
+    var address = 'Ataşehir Mevlana Mahallesi Sakarya Caddesi';
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == 'OK') {
+        //map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+            map: map,
+            title:'Şikayet' + address,
+            position: results[0].geometry.location
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  }
+
+</script>            
+</div>
+

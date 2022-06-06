@@ -1,0 +1,95 @@
+@model complaint_tr.Models.Complaint
+
+@{
+    ViewData["Title"] = "Create";
+}
+@using Microsoft.AspNetCore.Identity
+@using complaint_tr.Areas.Identity.Data;
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+<header id="home" class="header">
+        <div class="overlay"></div>
+
+        <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">  
+            <div class="container">
+                <div class="carousel-inner">
+
+<h1>Create</h1>
+
+<h4>Complaint</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="type" class="control-label"></label>
+                <input style="background-color:white;" asp-for="type" class="form-control" />
+                <span asp-validation-for="type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="definition" class="control-label"></label>
+                <input style="background-color:white;" asp-for="definition" class="form-control" />
+                <span asp-validation-for="definition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="province" class="control-label"></label>
+                <input style="background-color:white;" asp-for="province" class="form-control" />
+                <span asp-validation-for="province" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="district" class="control-label"></label>
+                <input style="background-color:white;" asp-for="district" class="form-control" />
+                <span asp-validation-for="district" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="neighbourhood" class="control-label"></label>
+                <input style="background-color:white;" asp-for="neighbourhood" class="form-control" />
+                <span asp-validation-for="neighbourhood" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="second_line" class="control-label"></label>
+                <input style="background-color:white;" asp-for="second_line" class="form-control" />
+                <span asp-validation-for="second_line" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+        <div class="infos container mb-4 mb-md-2">
+            <div class="title">
+                <h6 class="subtitle font-weight-normal">Eğer Merak Edersen</h6>
+                <h5>Bize Ulaş!</h5>
+                <p class="font-small">Sosyal Medya Hesaplarımız</p>
+            </div>
+            <div class="socials text-right">
+                <div class="row justify-content-between">
+                    <div class="col">
+                        <a class="d-block subtitle"><i class="ti-microphone pr-2"></i>(+90)599-860-85-46</a>
+                        <a class="d-block subtitle"><i class="ti-email pr-2"></i>info@sikayetet.com</a>
+                    </div>
+                    <div class="col">
+                        <h6 class="subtitle font-weight-normal mb-2">Sosyal Medya Hesapları</h6>
+                        <div class="social-links">
+                            <a href="javascript:void(0)" class="link pr-1"><i class="ti-facebook"></i></a>
+                            <a href="javascript:void(0)" class="link pr-1"><i class="ti-twitter-alt"></i></a>
+                            <a href="javascript:void(0)" class="link pr-1"><i class="ti-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{Html.AntiForgeryToken();}
+}

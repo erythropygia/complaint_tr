@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using complaint_tr.Areas.Identity.Data;
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+@{await Html.RenderPartialAsync("_Head");}
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+@{await Html.RenderPartialAsync("_Nav");}
+
+@RenderBody()
+
+@{await Html.RenderPartialAsync("_Section");}
+
+
+
+@{await Html.RenderPartialAsync("_Scripts");}
+@RenderSection("scripts", required: false)
+
+</body>
+</html>

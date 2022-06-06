@@ -1,0 +1,80 @@
+@model complaint_tr.Models.Complaint
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@using Microsoft.AspNetCore.Identity
+@using complaint_tr.Areas.Identity.Data;
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+<header id="home" class="header">
+        <div class="overlay"></div>
+
+        <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">  
+            <div class="container">
+                <div class="carousel-inner">
+
+<h1>Edit</h1>
+
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div  class="form-group">
+                <label asp-for="type" class="control-label"></label>
+                <input style="background-color:white;" asp-for="type" class="form-control" />
+                <span asp-validation-for="type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="definition" class="control-label"></label>
+                <input style="background-color:white;" asp-for="definition" class="form-control" />
+                <span asp-validation-for="definition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="province" class="control-label"></label>
+                <input style="background-color:white;" asp-for="province" class="form-control" />
+                <span asp-validation-for="province" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="district" class="control-label"></label>
+                <input style="background-color:white;" asp-for="district" class="form-control" />
+                <span asp-validation-for="district" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="neighbourhood" class="control-label"></label>
+                <input style="background-color:white;" asp-for="neighbourhood" class="form-control" />
+                <span asp-validation-for="neighbourhood" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="second_line" class="control-label"></label>
+                <input style="background-color:white;" asp-for="second_line" class="form-control" />
+                <span asp-validation-for="second_line" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="is_approved" /> @Html.DisplayNameFor(model => model.is_approved)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="posting_date" class="control-label"></label>
+                <input style="background-color:white;" asp-for="posting_date" class="form-control" />
+                <span asp-validation-for="posting_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="Index">Back to List</a>
+            </div>
+            <div>
+            
+            </div>
+        </form>
+    </div>
+
+    </header>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
